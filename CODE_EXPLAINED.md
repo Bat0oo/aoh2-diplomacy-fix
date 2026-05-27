@@ -270,3 +270,39 @@ Standard Python pattern. `main()` only runs when you execute the script directly
 - ✅ Only reads and writes `_2X*` files inside the save folder you provide
 - ✅ Always creates a backup before writing anything (`run_fix` only)
 - ✅ `--scan` and `--dry-run` are fully read-only — zero writes, zero backups needed
+
+
+---
+
+## test_fix.py — Test Suite
+
+This file verifies that the script works correctly. It does not touch any real save files — it creates fake data in a temporary folder, runs the script against it, and deletes everything when done.
+
+Run it with:
+```bash
+python test_fix.py -v
+```
+
+### Test classes
+
+**TestScanFile** — verifies `scan_file()` counts NaN correctly and never writes to disk.
+
+**TestFixFile** — verifies `fix_file()` replaces NaN accurately, leaves clean files untouched, and doesn't corrupt valid values.
+
+**TestBackupFiles** — verifies backup is created before any modification, content matches original, and original file is untouched.
+
+**TestFindRelationFiles** — verifies the `_2X` pattern matches correctly and ignores unrelated files and backup folders.
+
+**TestEndToEnd** — full workflow test: fake save → scan → backup → fix → verify.
+
+**TestBadData** — feeds the script broken input on purpose:
+- Empty file
+- Random binary garbage
+- Only 3 of the 4 NaN bytes (partial match — must not replace)
+- NaN at start / end of file
+- Entire file is NaN
+- 3.5 MB file (same size as real save)
+- Two backups don't overwrite each other
+- Empty folder, folder with no `_2X` files
+
+**TestByteConstants** — mathematically verifies that `7F C0 00 00` is actually NaN and `41 20 00 00` is actually 10.0 using Python's `struct` library.
