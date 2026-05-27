@@ -2,7 +2,9 @@
 
 ![Tests](https://img.shields.io/badge/tests-35%20passed-brightgreen) ![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-Fix for the **Age of History II diplomacy bug** where all country relations are permanently stuck at `0` and cannot be changed. Works on any campaign length and any scenario.
+Fix for the **Age of History II diplomacy bug** where all country relations are permanently stuck at `0` and cannot be changed. Works on any campaign length and any scenario. Download the `.exe` below — no Python required.
+
+> **Quick answer:** Your AoH2 save has `NaN` (Not a Number) values where relation scores should be. This tool scans your save files, shows you what it will change, creates a backup, and replaces all NaN values with `+10.0`. Takes under 10 seconds.
 
 > ✅ Always backs up your save before making any changes.  
 > ✅ Use `--scan` to check if you're affected before committing to anything.  
@@ -188,10 +190,6 @@ Not sure what the script does? Read the full [line-by-line code explanation](COD
 Found a bug? Want to add a feature? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
-
-## Credits
-
-Fix method originally documented in the [Steam Community guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3264095824).
 
 ## License
 
