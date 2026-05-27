@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# PyInstaller build output — .exe goes to GitHub Releases, not git
+dist/
+build/
+*.spec
+
+# Backups created by the script
+BACKUP_*/
+
+# OS
+.DS_Store
+Thumbs.db
