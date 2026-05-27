@@ -1,5 +1,7 @@
 # AoH2 Diplomacy Fix — Relations Stuck at 0 Bug
 
+![Tests](https://img.shields.io/badge/tests-35%20passed-brightgreen) ![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
+
 Fix for the **Age of History II diplomacy bug** where all country relations are permanently stuck at `0` and cannot be changed. Works on any campaign length and any scenario.
 
 > ✅ Always backs up your save before making any changes.  
